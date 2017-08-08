@@ -3,7 +3,20 @@ import { Link } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 // import './index.css';
 
-export default class Lesson extends Component {
+export default class Deck extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { deck: undefined };
+  }
+
+  componentDidMount() {
+    const { match } = this.props;
+    fetch(`${process.env.PUBLIC_URL}/decks/${match.params.deckId}.json`)
+      .then(response => response.json())
+      .then(deck => this.setState({ deck: deck }))
+      .catch(error => this.setState({ error: error }));
+  }
+
   render() {
     const { match } = this.props;
     const slideLinks = [1, 2, 3, 4].map(index =>
@@ -13,11 +26,10 @@ export default class Lesson extends Component {
         </Link>
       </li>
     );
-    console.log(this.props);
     return (
       <div>
         <h2>
-          Lesson {match.params.lessonId}
+          Deck {match.params.deckId}
         </h2>
         <ul>
           {' '}{slideLinks}{' '}
