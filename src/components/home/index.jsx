@@ -7,7 +7,7 @@ export default class Home extends Component {
     return (
       <div>
         <h2>Home</h2>
-        <Link to="/decks/1">Start learning now!</Link>
+        <Link to="/decks/1/cards/1">Start learning now!</Link>
       </div>
     );
   }

@@ -1,29 +1,11 @@
 {
-  "name": "komethra",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "husky": "^0.14.3",
-    "lint-staged": "^4.0.2",
-    "prettier": "^1.5.3",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-router-dom": "^4.1.2"
-  },
-  "devDependencies": {
-    "react-scripts": "1.0.7"
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": [
-      "prettier --single-quote --write",
-      "git add"
-    ]
-  },
-  "scripts": {
-    "precommit": "lint-staged",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+	"title": "Intro deck",
+	"cards": [
+		{"text": "Card 1"},
+		{"text": "Card 2"},
+		{"text": "Card 3"},
+		{"text": "Card 4"},
+		{"text": "Card 5"},
+		{"text": "Card 6"}
+	]
 }

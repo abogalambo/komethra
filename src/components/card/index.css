@@ -1,0 +1,6 @@
+.card {
+  position: absolute;
+  width: 100%;
+  border: 1px solid;
+  transition: left 0.5s ease;
+}
