@@ -1,10 +1,10 @@
 {
 	"title": "Intro deck",
 	"cards": [
-		{"text": "Card 1"},
+		{"text": "Card 1", "image": "/img/community.jpg"},
 		{"text": "Card 2"},
 		{"text": "Card 3"},
-		{"text": "Card 4"},
+		{"text": "Card 4", "image": "/img/hummus.jpg"},
 		{"text": "Card 5"},
 		{"text": "Card 6"}
 	]

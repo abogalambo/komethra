@@ -9,6 +9,7 @@ export default class Card extends Component {
         <h2>
           {card.text}
         </h2>
+        {card.image && <img src={card.image} height="300px" />}
       </div>
     );
   }
