@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Card from '../card/index';
+import ProgressBar from '../progress_bar/index';
 // import './index.css';
 
 export default class Deck extends Component {
@@ -24,8 +25,8 @@ export default class Deck extends Component {
     const { match } = this.props;
     fetch(`${process.env.PUBLIC_URL}/decks/${match.params.deckId}.json`)
       .then(response => response.json())
-      .then(deck => this.setState({ deck: deck }))
-      .catch(error => this.setState({ error: error }));
+      .then(deck => this.setState({ deck }))
+      .catch(error => this.setState({ error }));
   }
 
   render() {
@@ -44,6 +45,7 @@ export default class Deck extends Component {
     const activeCardIndex = parseInt(cardIndex, 10);
     return (
       <div>
+        <ProgressBar currentIndex={activeCardIndex} length={cards.length} />
         <h1>
           {' '}{title}{' '}
         </h1>
