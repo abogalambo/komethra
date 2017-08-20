@@ -55,6 +55,11 @@ export default class Audio extends Component {
     this.props.active && this.onActive();
   }
 
+  componentWillUnmount() {
+    const { playing } = this.state;
+    playing && this.stop();
+  }
+
   componentWillReceiveProps(nextProps) {
     const { playing } = this.state;
     const { active } = this.props;
@@ -72,7 +77,7 @@ export default class Audio extends Component {
     const { loading, playing } = this.state;
 
     return (
-      (loading && <button>Loading ...</button>) ||
+      (loading && <button disabled>Loading ...</button>) ||
       (playing && <button onClick={this.pause}>Pause</button>) ||
       <button onClick={this.play}>Play</button>
     );
