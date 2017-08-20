@@ -3,12 +3,13 @@ const gainNode = audioCtx.createGain();
 let volumeMemory = 1;
 
 export default class Audio {
-  constructor(url) {
+  constructor(url, callbacks = {}) {
     this.url = url;
     this._state = {
       currentOffset: 0,
       isPlaying: false
     };
+    this._callbacks = callbacks;
   }
 
   load() {
@@ -17,7 +18,12 @@ export default class Audio {
       fetch(this.url)
         .then(response => response.arrayBuffer())
         .then(arrayBuffer => audioCtx.decodeAudioData(arrayBuffer))
-        .then(buffer => Promise.resolve(buffer));
+        .then(buffer => {
+          const { onLoaded } = this._callbacks;
+          const promise = Promise.resolve(buffer);
+          onLoaded && onLoaded();
+          return promise;
+        });
     return this._state.promise;
   }
 
@@ -94,6 +100,8 @@ export default class Audio {
         currentOffset: 0,
         isPlaying: false
       });
+      const { onEnded } = this._callbacks;
+      onEnded && onEnded();
     }
   }
 
