@@ -11,7 +11,12 @@ export default class Card extends Component {
           {card.text}
         </h2>
         {card.image && <img src={card.image} height="300px" />}
-        {card.audio && <Audio url={card.audio} active={current} />}
+        {card.audio &&
+          <Audio
+            url={card.audio.url}
+            active={current}
+            autoplay={card.audio.autoplay}
+          />}
       </div>
     );
   }

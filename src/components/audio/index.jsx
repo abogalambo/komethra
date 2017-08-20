@@ -11,6 +11,7 @@ export default class Audio extends Component {
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.stop = this.stop.bind(this);
+    this.onActive = this.onActive.bind(this);
   }
 
   callbacks() {
@@ -21,6 +22,9 @@ export default class Audio extends Component {
   }
 
   play() {
+    if (!this.props.active) {
+      return;
+    }
     this.state.audio.play();
     this.setState({ playing: true });
   }
@@ -35,15 +39,32 @@ export default class Audio extends Component {
     this.setState({ playing: false });
   }
 
+  onActive() {
+    const { audio } = this.state;
+    const { autoplay } = this.props;
+
+    if (autoplay) {
+      audio.load().then(() => {
+        this.play();
+      });
+    }
+  }
+
   componentDidMount() {
     this.state.audio.load();
+    this.props.active && this.onActive();
   }
 
   componentWillReceiveProps(nextProps) {
     const { playing } = this.state;
     const { active } = this.props;
+
     if (active && !nextProps.active) {
       playing && this.stop();
+    }
+
+    if (!active && nextProps.active) {
+      this.onActive();
     }
   }
 
