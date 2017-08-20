@@ -7,6 +7,17 @@ export default class Deck extends Component {
   constructor(props) {
     super(props);
     this.state = { deck: undefined };
+    this.nextCard = this.nextCard.bind(this);
+    this.previousCard = this.previousCard.bind(this);
+    this._handleKeyDown = this._handleKeyDown.bind(this);
+  }
+
+  componentWillMount() {
+    document.addEventListener('keydown', this._handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this._handleKeyDown);
   }
 
   componentDidMount() {
@@ -80,6 +91,39 @@ export default class Deck extends Component {
     const { cards } = this.state.deck;
     const { cardIndex } = this.props.match.params;
     return cardIndex < cards.length;
+  }
+
+  nextCard() {
+    const { deckId, cardIndex } = this.props.match.params;
+    const activeCardIndex = parseInt(cardIndex, 10);
+    if (this.hasNext()) {
+      this.props.history.push(`/decks/${deckId}/cards/${activeCardIndex + 1}`);
+    }
+  }
+
+  previousCard() {
+    const { deckId, cardIndex } = this.props.match.params;
+    const activeCardIndex = parseInt(cardIndex, 10);
+    if (this.hasPrevious()) {
+      this.props.history.push(`/decks/${deckId}/cards/${activeCardIndex - 1}`);
+    }
+  }
+
+  _handleKeyDown(event) {
+    const ARROW_LEFT = 37;
+    const ARROW_RIGHT = 39;
+    const SPACE = 32;
+    switch (event.keyCode) {
+      case SPACE:
+        this.nextCard();
+        break;
+      case ARROW_RIGHT:
+        this.nextCard();
+        break;
+      case ARROW_LEFT:
+        this.previousCard();
+        break;
+    }
   }
 }
 
