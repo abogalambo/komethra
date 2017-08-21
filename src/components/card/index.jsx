@@ -6,17 +6,16 @@ export default class Card extends Component {
   render() {
     const { card, current } = this.props;
     return (
-      <div className="card" style={this.style()}>
-        <h2>
-          {card.text}
-        </h2>
-        {card.image && <img src={card.image} height="300px" />}
-        {card.audio &&
-          <Audio
-            url={card.audio.url}
-            active={current}
-            autoplay={card.audio.autoplay}
-          />}
+      <div className="container--card" style={this.style()}>
+        <div className="card">
+          {card.audio &&
+            <Audio
+              url={card.audio.url}
+              active={current}
+              autoplay={card.audio.autoplay}
+            />}
+          {card.image && <img src={card.image} />}
+        </div>
       </div>
     );
   }
