@@ -1,1 +1,23 @@
+.btn--audio {
+  background-color: #abc837;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: center;
+  fill: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
 
+.btn--audio__play {
+  background-image: url('img/audio-icon-only.svg');
+}
+
+.btn--audio__pause {
+  background-image: url('img/audio-icon-off-only.svg');
+}
+
+.btn--audio__load {
+  background-image: url('img/loader.gif');
+  background-size: 20px 20px;
+}

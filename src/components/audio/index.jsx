@@ -77,9 +77,17 @@ export default class Audio extends Component {
     const { loading, playing } = this.state;
 
     return (
-      (loading && <button disabled>Loading ...</button>) ||
-      (playing && <button onClick={this.pause}>Pause</button>) ||
-      <button onClick={this.play}>Play</button>
+      (loading &&
+        <button className="btn btn--audio btn--audio__load" disabled />) ||
+      (playing &&
+        <button
+          className="btn btn--audio btn--audio__play"
+          onClick={this.pause}
+        />) ||
+      <button
+        className="btn btn--audio btn--audio__pause"
+        onClick={this.play}
+      />
     );
   }
 }

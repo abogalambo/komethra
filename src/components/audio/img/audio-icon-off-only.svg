@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="12.107333mm"
+   height="11.599334mm"
+   viewBox="0 0 42.899999 41.100001"
+   id="svg8157"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="audi-icon-off-only.svg">
+  <defs
+     id="defs8159" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#0e7988"
+     bordercolor="#000000"
+     borderopacity="1"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="9.1502298"
+     inkscape:cx="24.299003"
+     inkscape:cy="14.44186"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-global="true"
+     inkscape:snap-bbox="true"
+     inkscape:snap-to-guides="true"
+     inkscape:snap-object-midpoints="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       position="-35.846095,26.447422"
+       orientation="1,0"
+       id="guide8723" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata8162">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-261.40714,-294.66935)">
+    <path
+       id="path3353"
+       d="m 272.10714,324.16935 11.4,11.1 c 0.3,0.3 0.8,0.5 1.3,0.5 1,0 1.8,-0.8 1.8,-1.8 l 0,-37.5 c 0,-1 -0.8,-1.8 -1.8,-1.8 -0.5,0 -1,0.2 -1.3,0.5 l -11.4,11.2 -7.1,0 c -2,0 -3.6,1.6 -3.6,3.6 l 0,10.7 c 0,2 1.6,3.6 3.6,3.6 l 7.1,0 z"
+       inkscape:connector-curvature="0"
+       style="clip-rule:evenodd;fill:#ffffff;fill-rule:evenodd"
+       sodipodi:nodetypes="ccssssccsssscc" />
+    <path
+       style="opacity:1;fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:4.17018509;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 301.90727,310.59569 -8.98023,10.12973"
+       id="path8721"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path8727"
+       d="m 292.92704,310.59569 8.98023,10.12973"
+       style="opacity:1;fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:4.17018509;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>
