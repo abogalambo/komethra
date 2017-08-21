@@ -1,7 +1,7 @@
 {
 	"title": "Intro deck",
 	"cards": [
-		{"text": "Card 1", "image": "/img/community.jpg", "audio": {"url":"/audio/arabic-hub-10.m4a", "autoplay": true}},
+		{"text": "Card 1", "image": "/img/community.jpg", "audio": {"url":"/audio/arabic-hub-10.m4a", "autoplay": false}},
 		{"text": "Card 2", "audio": {"url":"/audio/sayyaarah.m4a", "autoplay": false}},
 		{"text": "Card 3"},
 		{"text": "Card 4", "image": "/img/hummus.jpg"},

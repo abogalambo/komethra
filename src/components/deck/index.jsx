@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Card from '../card/index';
 import ProgressBar from '../progress_bar/index';
-// import './index.css';
+import './index.css';
 
 export default class Deck extends Component {
   constructor(props) {
@@ -44,22 +44,21 @@ export default class Deck extends Component {
     const { cards, title } = this.state.deck;
     const activeCardIndex = parseInt(cardIndex, 10);
     return (
-      <div>
-        <ProgressBar currentIndex={activeCardIndex} length={cards.length} />
-        <h1>
-          {' '}{title}{' '}
-        </h1>
+      <div className="container--deck">
+        {false &&
+          <ProgressBar currentIndex={activeCardIndex} length={cards.length} />}
 
-        <div>
-          {this.hasPrevious() &&
-            <Link to={`/decks/${deckId}/cards/${activeCardIndex - 1}`}>
-              {' '}{'<<'}{' '}
-            </Link>}{' '}
-          {this.hasNext() &&
-            <Link to={`/decks/${deckId}/cards/${activeCardIndex + 1}`}>
-              {' '}>>{' '}
-            </Link>}
-        </div>
+        {false &&
+          <div>
+            {this.hasPrevious() &&
+              <Link to={`/decks/${deckId}/cards/${activeCardIndex - 1}`}>
+                {' '}{'<<'}{' '}
+              </Link>}{' '}
+            {this.hasNext() &&
+              <Link to={`/decks/${deckId}/cards/${activeCardIndex + 1}`}>
+                {' '}>>{' '}
+              </Link>}
+          </div>}
 
         {this.hasPrevious() &&
           <Card
