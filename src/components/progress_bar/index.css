@@ -1,11 +1,17 @@
 .progress-bar {
   width: 100%;
-  height: 2px;
-  background-color: orange;
+  height: 20px;
+  background-color: #b3b3b3;
+  margin-top: 30px;
+}
+
+.progress-bar,
+.progress-bar div {
+  border-radius: 10px;
 }
 
 .progress-bar div {
-  background-color: darkblue;
+  background-color: #abc837;
   height: inherit;
   transition: width 0.5s ease;
 }
