@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/home/index';
 import Deck from './components/deck/index';
 import Static from './components/static/index';
-
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
