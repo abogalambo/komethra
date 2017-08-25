@@ -43,6 +43,8 @@ export default class Deck extends Component {
     const { deckId, cardIndex } = this.props.match.params;
     const { cards, title } = this.state.deck;
     const activeCardIndex = parseInt(cardIndex, 10);
+    const displayedCards = this._getDisplayedCards(cards, activeCardIndex);
+
     return (
       <div className="container--deck">
         <ProgressBar currentIndex={activeCardIndex} length={cards.length} />
@@ -59,25 +61,7 @@ export default class Deck extends Component {
               </Link>}
           </div>}
 
-        {this.hasPrevious() &&
-          <Card
-            card={cards[activeCardIndex - 2]}
-            previous
-            key={`card-${activeCardIndex - 2}`}
-          />}
-
-        <Card
-          card={cards[activeCardIndex - 1]}
-          current
-          key={`card-${activeCardIndex - 1}`}
-        />
-
-        {this.hasNext() &&
-          <Card
-            card={cards[activeCardIndex]}
-            next
-            key={`card-${activeCardIndex}`}
-          />}
+        {displayedCards}
       </div>
     );
   }
@@ -124,6 +108,25 @@ export default class Deck extends Component {
         this.previousCard();
         break;
     }
+  }
+
+  _getDisplayedCards(cards, activeIndex) {
+    const positions = [
+      'preprevious',
+      'previous',
+      'current',
+      'next',
+      'nextnext'
+    ];
+    return [-3, -2, -1, 0, 1]
+      .map(offset => activeIndex + offset)
+      .filter(index => cards[index])
+      .map(index => ({
+        card: cards[index],
+        key: `card-${index}`,
+        [positions[index - activeIndex + 3]]: true // e.g previous: true
+      }))
+      .map(props => <Card {...props} />);
   }
 }
 

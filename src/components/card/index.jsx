@@ -21,9 +21,11 @@ export default class Card extends Component {
   }
 
   style() {
-    const { previous, next, current } = this.props;
-    if (previous) return { left: '-100%' };
-    if (current) return { left: '0' };
-    if (next) return { left: '100%' };
+    const { preprevious, previous, current, next, nextnext } = this.props;
+    if (preprevious) return { left: '-100%' };
+    if (previous) return { left: '-40%' };
+    if (current) return { left: '20%' };
+    if (next) return { left: '80%' };
+    if (nextnext) return { left: '120%' };
   }
 }
