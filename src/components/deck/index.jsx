@@ -45,8 +45,7 @@ export default class Deck extends Component {
     const activeCardIndex = parseInt(cardIndex, 10);
     return (
       <div className="container--deck">
-        {false &&
-          <ProgressBar currentIndex={activeCardIndex} length={cards.length} />}
+        <ProgressBar currentIndex={activeCardIndex} length={cards.length} />
 
         {false &&
           <div>

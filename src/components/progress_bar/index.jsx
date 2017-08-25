@@ -4,8 +4,10 @@ import './index.css';
 export default class ProgressBar extends Component {
   render() {
     return (
-      <div className="progress-bar">
-        <div style={this.style()} />
+      <div className="container--progress-bar">
+        <div className="progress-bar">
+          <div style={this.style()} />
+        </div>
       </div>
     );
   }
