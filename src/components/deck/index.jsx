@@ -41,7 +41,7 @@ export default class Deck extends Component {
 
   renderDeck() {
     const { deckId, cardIndex } = this.props.match.params;
-    const { cards, title } = this.state.deck;
+    const { cards } = this.state.deck;
     const activeCardIndex = parseInt(cardIndex, 10);
     const displayedCards = this._getDisplayedCards(cards, activeCardIndex);
 
@@ -106,6 +106,8 @@ export default class Deck extends Component {
         break;
       case ARROW_LEFT:
         this.previousCard();
+        break;
+      default:
         break;
     }
   }

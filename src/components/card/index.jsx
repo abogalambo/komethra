@@ -14,7 +14,7 @@ export default class Card extends Component {
               active={current}
               autoplay={card.audio.autoplay}
             />}
-          {card.image && <img src={card.image} />}
+          {card.image && <img alt="" src={card.image} />}
         </div>
       </div>
     );
