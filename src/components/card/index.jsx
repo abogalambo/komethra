@@ -4,11 +4,11 @@ import Audio from '../audio/index';
 
 export default class Card extends Component {
   render() {
-    const { card, current } = this.props;
+    const { card, current, onClick } = this.props;
     return (
       <div className="container--card" style={this.style()}>
         {this.shouldRenderCard() &&
-          <div className="card">
+          <div className="card" onClick={onClick}>
             {card.audio &&
               <Audio
                 url={card.audio.url}

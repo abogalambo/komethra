@@ -42,21 +42,21 @@ export default class Deck extends Component {
   renderDeck() {
     const { deckId, cardIndex } = this.props.match.params;
     const { cards } = this.state.deck;
-    const activeCardIndex = parseInt(cardIndex, 10);
+    const activeCardIndex = parseInt(cardIndex, 10) - 1;
     const displayedCards = this._getDisplayedCards(cards, activeCardIndex);
 
     return (
       <div className="container--deck">
-        <ProgressBar currentIndex={activeCardIndex} length={cards.length} />
+        <ProgressBar currentIndex={activeCardIndex + 1} length={cards.length} />
 
         {false &&
           <div>
             {this.hasPrevious() &&
-              <Link to={`/decks/${deckId}/cards/${activeCardIndex - 1}`}>
+              <Link to={`/decks/${deckId}/cards/${activeCardIndex}`}>
                 {' '}{'<<'}{' '}
               </Link>}{' '}
             {this.hasNext() &&
-              <Link to={`/decks/${deckId}/cards/${activeCardIndex + 1}`}>
+              <Link to={`/decks/${deckId}/cards/${activeCardIndex + 2}`}>
                 {' '}>>{' '}
               </Link>}
           </div>}
@@ -120,13 +120,20 @@ export default class Deck extends Component {
       'next',
       'nextnext'
     ];
-    return [-3, -2, -1, 0, 1]
+
+    const handlers = {
+      '-1': this.previousCard,
+      '1': this.nextCard
+    };
+
+    return [-2, -1, 0, 1, 2]
       .map(offset => activeIndex + offset)
       .filter(index => cards[index])
       .map(index => ({
         card: cards[index],
         key: `card-${index}`,
-        [positions[index - activeIndex + 3]]: true // e.g previous: true
+        onClick: handlers[index - activeIndex],
+        [positions[index - activeIndex + 2]]: true // e.g previous: true
       }))
       .map(props => <Card {...props} />);
   }
