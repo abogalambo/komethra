@@ -5,21 +5,26 @@ import Audio from '../audio/index';
 export default class Card extends Component {
   render() {
     const { card, current, onClick } = this.props;
+    const { audio, image, title, link } = card;
     return (
       <div className="container--card" style={this.style()}>
         {this.shouldRenderCard() &&
           <div className="card" onClick={onClick}>
-            {card.audio &&
+            {audio &&
               <Audio
-                url={card.audio.url}
+                url={audio.url}
                 active={current}
-                autoplay={card.audio.autoplay}
+                autoplay={audio.autoplay}
               />}
-            {card.image && <img alt="" src={card.image} />}
-            {card.title &&
+            {image && <img alt="" src={image} />}
+            {title &&
               <h1 className="title--card">
-                {' '}{card.title}{' '}
+                {' '}{title}{' '}
               </h1>}
+            {link &&
+              <a className="link--card" href={link.href} target="_blank">
+                {link.text}
+              </a>}
           </div>}
       </div>
     );

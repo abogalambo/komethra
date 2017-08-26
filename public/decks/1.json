@@ -1,11 +1,33 @@
 {
 	"title": "Intro deck",
-	"cards": [
-		{"title": "Intro deck - part 1"},
-		{"text": "Card 1", "image": "/img/community.jpg", "audio": {"url":"/audio/arabic-hub-10.m4a", "autoplay": false}},
-		{"text": "Card 2", "audio": {"url":"/audio/sayyaarah.m4a", "autoplay": false}},
-		{"title": "Intro deck - part 2"},
-		{"text": "Card 4", "image": "/img/hummus.jpg"},
-		{"title": "شكرا"}
+	"cards": [{
+			"title": "Intro deck - part 1"
+		},
+		{
+			"image": "/img/community.jpg",
+			"audio": {
+				"url": "/audio/arabic-hub-10.m4a",
+				"autoplay": false
+			}
+		},
+		{
+			"audio": {
+				"url": "/audio/sayyaarah.m4a",
+				"autoplay": false
+			},
+			"link": {
+				"text": "Join us on Facebook",
+				"href": "https://www.sasapost.com/opinion/a-monster-unleashed/"
+			}
+		},
+		{
+			"title": "Intro deck - part 2"
+		},
+		{
+			"image": "/img/hummus.jpg"
+		},
+		{
+			"title": "شكرا"
+		}
 	]
 }
