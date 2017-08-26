@@ -48,19 +48,6 @@ export default class Deck extends Component {
     return (
       <div className="container--deck">
         <ProgressBar currentIndex={activeCardIndex + 1} length={cards.length} />
-
-        {false &&
-          <div>
-            {this.hasPrevious() &&
-              <Link to={`/decks/${deckId}/cards/${activeCardIndex}`}>
-                {' '}{'<<'}{' '}
-              </Link>}{' '}
-            {this.hasNext() &&
-              <Link to={`/decks/${deckId}/cards/${activeCardIndex + 2}`}>
-                {' '}>>{' '}
-              </Link>}
-          </div>}
-
         {displayedCards}
       </div>
     );
