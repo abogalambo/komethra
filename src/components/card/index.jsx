@@ -16,6 +16,10 @@ export default class Card extends Component {
                 autoplay={card.audio.autoplay}
               />}
             {card.image && <img alt="" src={card.image} />}
+            {card.title &&
+              <h1 className="title--card">
+                {' '}{card.title}{' '}
+              </h1>}
           </div>}
       </div>
     );

@@ -1,11 +1,11 @@
 {
 	"title": "Intro deck",
 	"cards": [
+		{"title": "Intro deck - part 1"},
 		{"text": "Card 1", "image": "/img/community.jpg", "audio": {"url":"/audio/arabic-hub-10.m4a", "autoplay": false}},
 		{"text": "Card 2", "audio": {"url":"/audio/sayyaarah.m4a", "autoplay": false}},
-		{"text": "Card 3"},
+		{"title": "Intro deck - part 2"},
 		{"text": "Card 4", "image": "/img/hummus.jpg"},
-		{"text": "Card 5"},
-		{"text": "Card 6"}
+		{"title": "شكرا"}
 	]
 }
