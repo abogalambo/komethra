@@ -14,6 +14,6 @@ export default class ProgressBar extends Component {
 
   style() {
     const { currentIndex, length } = this.props;
-    return { width: `${currentIndex / length * 100}%` };
+    return { width: `${(currentIndex - 1) / (length - 1) * 100}%` };
   }
 }
