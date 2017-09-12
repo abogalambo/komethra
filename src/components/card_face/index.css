@@ -27,10 +27,20 @@
 }
 
 .card--face  h1.title--card {
-  font-size: 3em;
+  font-size: 2em;
+  font-weight: 600;
   width: 100%;
   position: absolute;
   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card--face  h2.subtitle--card {
+  font-size: 1em;
+  width: 100%;
+  position: absolute;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
