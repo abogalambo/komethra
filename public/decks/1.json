@@ -20,14 +20,14 @@
 		},
 		{
 			"front": {
-				"image": "/img/elephant-front.jpg",
+				"image": "/img/elephant-back.jpg",
 				"audio": {
 					"url": "/audio/demo/c3-front.m4a",
 					"autoplay": true
 				}
 			},
 			"back": {
-				"image": "/img/elephant-back.png",
+				"image": "/img/elephant-front.png",
 				"audio": {
 					"url": "/audio/demo/c3-back.m4a",
 					"autoplay": true
