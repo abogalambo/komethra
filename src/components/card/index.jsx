@@ -1,33 +1,54 @@
 import React, { Component } from 'react';
 import './index.css';
-import Audio from '../audio/index';
+import CardFace from '../card_face/index';
+import classNames from 'classnames';
 
 export default class Card extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { isFlipped: false };
+    this.flip = this.flip.bind(this);
+    this._handleKeyDown = this._handleKeyDown.bind(this);
+  }
+
+  componentWillMount() {
+    document.addEventListener('keydown', this._handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this._handleKeyDown);
+  }
+
   render() {
     const { card, current, onClick } = this.props;
-    const { audio, image, title, link } = card;
+    const { front, back } = card;
+    const { isFlipped } = this.state;
     return (
       <div className="container--card" style={this.style()}>
         {this.shouldRenderCard() &&
-          <div className="card" onClick={onClick}>
-            {audio &&
-              <Audio
-                url={audio.url}
-                active={current}
-                autoplay={audio.autoplay}
-              />}
-            {image && <img alt="" src={image} />}
-            {title &&
-              <h1 className="title--card">
-                {' '}{title}{' '}
-              </h1>}
-            {link &&
-              <a className="link--card" href={link.href} target="_blank">
-                {link.text}
-              </a>}
+          <div
+            className={classNames('card', { flipped: isFlipped })}
+            onClick={onClick}
+          >
+            {front && <CardFace side="front" {...front} />}
+            {back && <CardFace side="back" {...back} />}
           </div>}
       </div>
     );
+  }
+
+  _handleKeyDown(event) {
+    const SPACE = 32;
+    if (event.keyCode == SPACE) {
+      this.flip();
+    }
+  }
+
+  flip() {
+    const { current, card } = this.props;
+    if (card.back && current) {
+      this.setState({ isFlipped: !this.state.isFlipped });
+    }
   }
 
   shouldRenderCard() {

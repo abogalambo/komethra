@@ -83,11 +83,7 @@ export default class Deck extends Component {
   _handleKeyDown(event) {
     const ARROW_LEFT = 37;
     const ARROW_RIGHT = 39;
-    const SPACE = 32;
     switch (event.keyCode) {
-      case SPACE:
-        this.nextCard();
-        break;
       case ARROW_RIGHT:
         this.nextCard();
         break;
