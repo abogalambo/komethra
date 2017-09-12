@@ -30,8 +30,14 @@ export default class Card extends Component {
             className={classNames('card', { flipped: isFlipped })}
             onClick={onClick}
           >
-            {front && <CardFace side="front" {...front} />}
-            {back && <CardFace side="back" {...back} />}
+            {front &&
+              <CardFace
+                side="front"
+                current={current && !isFlipped}
+                {...front}
+              />}
+            {back &&
+              <CardFace side="back" current={current && isFlipped} {...back} />}
           </div>}
       </div>
     );
