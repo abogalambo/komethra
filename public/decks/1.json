@@ -1,51 +1,62 @@
 {
-	"title": "Intro deck",
 	"cards": [{
-			"front": { "title": "Intro deck - part 1" }
+			"front": {
+				"title": "Komethra - An Introduction",
+				"subtitle": "Click through the cards or use right and left arrows to navigate",
+				"audio": {
+					"url": "/audio/demo/c1-front.m4a",
+					"autoplay": true
+				}
+			}
 		},
 		{
 			"front": {
-				"image": "/img/community.jpg",
+				"image": "/img/crazy.gif",
 				"audio": {
-					"url": "/audio/arabic-hub-10.m4a",
-					"autoplay": false
+					"url": "/audio/demo/c2-front.m4a",
+					"autoplay": true
+				}
+			}
+		},
+		{
+			"front": {
+				"image": "/img/elephant-front.jpg",
+				"audio": {
+					"url": "/audio/demo/c3-front.m4a",
+					"autoplay": true
+				}
+			},
+			"back": {
+				"image": "/img/elephant-back.png",
+				"audio": {
+					"url": "/audio/demo/c3-back.m4a",
+					"autoplay": true
 				}
 			}
 		},
 		{
 			"front": {
 				"audio": {
-					"url": "/audio/sayyaarah.m4a",
-					"autoplay": false
+					"url": "/audio/demo/c4-front.m4a",
+					"autoplay": true
 				},
 				"link": {
-					"text": "Join us on Facebook",
-					"href": "https://www.sasapost.com/opinion/a-monster-unleashed/"
-				}
-			},
-			"back": {
-				"title": "Intro deck - part 2"
-			}
-		},
-		{
-			"front": {
-				"title": "Intro deck - part 2"
-			},
-			"back": {
-				"audio": {
-					"url": "/audio/arabic-hub-10.m4a",
-					"autoplay": false
+					"text": "A link that will take you somewhere",
+					"href": "https://www.sasapost.com/opinion/a-monster-unleashed"
 				}
 			}
 		},
 		{
 			"front": {
-				"image": "/img/hummus.jpg"
-			}
-		},
-		{
-			"front": {
-				"title": "شكرا"
+				"title": "Just a silent card",
+				"subtitle": "Because you’re probably sick of me talking. But if not, flip this card"
+			},
+			"back": {
+				"link": {
+					"text": "Enjoy ♪",
+					"href": "https://soundcloud.com/yaser-kamaluddeen/eqghssyyol1z"
+				},
+				"image": "/img/goat.jpg"
 			}
 		}
 	]
