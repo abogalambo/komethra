@@ -24,14 +24,16 @@
 				"audio": {
 					"url": "/audio/demo/c3-front.m4a",
 					"autoplay": true
-				}
+				},
+				"subtitle": "Press <Space> to see the back side"
 			},
 			"back": {
 				"image": "/img/elephant-front.jpg",
 				"audio": {
 					"url": "/audio/demo/c3-back.m4a",
 					"autoplay": true
-				}
+				},
+				"subtitle": "Press <Space> to go back to front"
 			}
 		},
 		{
