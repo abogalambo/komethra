@@ -5,8 +5,8 @@
   align-items: center;
   background-color: white;
   backface-visibility: hidden;
-  width: 530px;
-  height: 360px;
+  width: inherit;
+  height: inherit;
   position: absolute;
   top: 0;
   left: 0;
@@ -25,8 +25,8 @@
 }
 
 .card--face img {
-  max-height: 315px;
-  max-width: 395px;
+  max-height: 80%;
+  max-width: 80%;
   border-radius: 3px;
 }
 
