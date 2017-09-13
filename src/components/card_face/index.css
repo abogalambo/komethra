@@ -1,4 +1,8 @@
 .card--face {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: white;
   backface-visibility: hidden;
   width: 530px;
@@ -6,6 +10,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  border-radius: 3px;
 }
 
 .front {
@@ -20,40 +25,30 @@
 }
 
 .card--face img {
-  margin-top: 40px;
-  margin-left: 60px;
-  max-height: 273px;
-  max-width: 470px;
+  max-height: 315px;
+  max-width: 395px;
+  border-radius: 3px;
 }
 
 .card--face  h1.title--card {
   font-size: 2em;
   font-weight: 600;
   width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 5px;
 }
 
 .card--face  h2.subtitle--card {
   font-size: 1em;
   width: 100%;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 5px;
 }
 
 .card--face  a.link--card {
-  font-size: 1.5em;
+  font-size: 1em;
   color: white;
   text-decoration: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  padding: 10px;
-  transform: translate(-50%, -50%);
+  padding: 5px;
+  margin-top: 5px;
   background-color: #abc837;
-  border-radius: 10px;
+  border-radius: 3px;
 }
