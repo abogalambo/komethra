@@ -5,7 +5,6 @@ import Audio from '../audio/index';
 export default class CardFace extends Component {
   render() {
     const { side, audio, image, title, subtitle, link, current } = this.props;
-    current && console.log(this.props);
     return (
       <div className={`card--face ${side}`}>
         {audio &&
