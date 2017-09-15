@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Audio from '../audio/index';
+import classNames from 'classnames';
 import './index.css';
 
 export default class Question extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
     this.answer = this.answer.bind(this);
     this.answerHandler = this.answerHandler.bind(this);
     this.renderAnswers = this.renderAnswers.bind(this);
@@ -14,10 +16,17 @@ export default class Question extends Component {
     const { head, active } = this.props;
     const { audio } = head;
     const answers = this.renderAnswers();
+    const { selectedAnswer } = this.state;
     return (
       <div className="question">
         <div className="head">
-          {audio && <Audio url={audio.url} active={active} autoplay />}
+          {audio &&
+            <Audio
+              url={audio.url}
+              active={active}
+              autoplay={!selectedAnswer}
+            />}
+          <span>Select the right answer</span>
         </div>
         <div className="answers">
           {answers}
@@ -28,10 +37,21 @@ export default class Question extends Component {
 
   renderAnswers() {
     const { answers } = this.props;
+    const { selectedAnswer } = this.state;
     return answers.map(answer => {
       const { image } = answer;
+      const isSelected = selectedAnswer == answer;
+      const isIncorrect = isSelected && !selectedAnswer.correct;
+
       return (
-        image && <img alt="" src={image} onClick={this.answerHandler(answer)} />
+        <div
+          className={classNames('answer', { selected: isSelected })}
+          onClick={this.answerHandler(answer)}
+        >
+          {image && <img alt="" src={image} />}
+          {selectedAnswer && answer.correct && <span>✔</span>}
+          {isIncorrect && <span>✘</span>}
+        </div>
       );
     });
   }
@@ -41,6 +61,7 @@ export default class Question extends Component {
   }
 
   answer(answer) {
-    console.log('user answered with', answer);
+    if (this.state.selectedAnswer) return;
+    this.setState({ selectedAnswer: answer });
   }
 }

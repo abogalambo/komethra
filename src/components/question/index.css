@@ -1,13 +1,21 @@
 .head {
-  height: 33.3%;
+  height: 25%;
   position: relative;
 }
 
 .head > .btn--audio {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 30px;
+  transform: translate(0, -50%);
+}
+
+.head > span {
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  transform: translate(0, -50%);
+  font-size: 1.5em;
 }
 
 .question {
@@ -18,16 +26,26 @@
 .question .answers {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  max-height: 66.7%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  height: 75%;
+  width: 100%;
 }
 
-.question .answers img {
-  display: flex;
-  flex-grow: 1;
-  max-width: 33%;
+.question .answers .answer {
+  width: 150px;
+  height: 150px;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  position: relative;
+}
+
+.question .answers .answer.selected {
+  border: 5px solid #abc837;
+}
+
+.question .answers .answer span {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
 }
