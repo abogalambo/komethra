@@ -9,16 +9,6 @@
   border-radius: 25px;
 }
 
-/* 
-  We want this positioning only for audio buttons that play the main card audio.
-  We need to be free to render audio buttons in other places
-*/
-.card--face > .btn--audio {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-}
-
 .btn--audio__play {
   background-image: url('img/audio-icon-only.svg');
 }

@@ -53,3 +53,9 @@
   background-color: #abc837;
   border-radius: 3px;
 }
+
+.card--face > .btn--audio {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
