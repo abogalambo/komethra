@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Audio from '../audio/index';
 import classNames from 'classnames';
+import correctAudio from '../../audio/correct.mp3';
+import incorrectAudio from '../../audio/incorrect.mp3';
+import Sound from '../../modules/audio.js';
 import './index.css';
 
 export default class Question extends Component {
@@ -10,6 +13,8 @@ export default class Question extends Component {
     this.answer = this.answer.bind(this);
     this.answerHandler = this.answerHandler.bind(this);
     this.renderAnswers = this.renderAnswers.bind(this);
+    this.correctSound = new Sound(correctAudio);
+    this.incorrectSound = new Sound(incorrectAudio);
   }
 
   render() {
@@ -63,5 +68,10 @@ export default class Question extends Component {
   answer(answer) {
     if (this.state.selectedAnswer) return;
     this.setState({ selectedAnswer: answer });
+    if (answer.correct) {
+      this.correctSound.play();
+    } else {
+      this.incorrectSound.play();
+    }
   }
 }
