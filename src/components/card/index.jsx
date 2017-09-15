@@ -24,7 +24,7 @@ export default class Card extends Component {
     const { front, back } = card;
     const { isFlipped } = this.state;
     return (
-      <div className="container--card" style={this.style()}>
+      <div className="container--card" onClick={this.flip} style={this.style()}>
         {this.shouldRenderCard() &&
           <div
             className={classNames('card', { flipped: isFlipped })}
