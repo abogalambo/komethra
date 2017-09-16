@@ -36,43 +36,41 @@ export default class Deck extends Component {
   }
 
   renderDeck() {
-    const { deckId, cardIndex } = this.props.match.params;
+    const { cardIndex } = this.props;
     const { cards } = this.props.deck;
-    const activeCardIndex = parseInt(cardIndex, 10) - 1;
-    const displayedCards = this._getDisplayedCards(cards, activeCardIndex);
+    const displayedCards = this._getDisplayedCards(cards, cardIndex);
 
     return (
       <div className="container--deck">
-        <ProgressBar currentIndex={activeCardIndex + 1} length={cards.length} />
+        <ProgressBar currentIndex={cardIndex + 1} length={cards.length} />
         {displayedCards}
       </div>
     );
   }
 
   hasPrevious() {
-    const { cardIndex } = this.props.match.params;
-    return cardIndex > 1;
+    const { cardIndex } = this.props;
+    return cardIndex > 0;
   }
 
   hasNext() {
-    const { cards } = this.props.deck;
-    const { cardIndex } = this.props.match.params;
-    return cardIndex < cards.length;
+    const { deck, cardIndex } = this.props;
+    return cardIndex < deck.cards.length - 1;
   }
 
   nextCard() {
-    const { deckId, cardIndex } = this.props.match.params;
-    const activeCardIndex = parseInt(cardIndex, 10);
+    const { cardIndex, match, goToCard } = this.props;
+    const { deckId } = match.params;
     if (this.hasNext()) {
-      this.props.history.push(`/decks/${deckId}/cards/${activeCardIndex + 1}`);
+      goToCard(deckId, cardIndex + 1);
     }
   }
 
   previousCard() {
-    const { deckId, cardIndex } = this.props.match.params;
-    const activeCardIndex = parseInt(cardIndex, 10);
+    const { cardIndex, match, goToCard } = this.props;
+    const { deckId } = match.params;
     if (this.hasPrevious()) {
-      this.props.history.push(`/decks/${deckId}/cards/${activeCardIndex - 1}`);
+      goToCard(deckId, cardIndex - 1);
     }
   }
 
