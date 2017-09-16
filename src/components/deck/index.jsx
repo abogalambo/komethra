@@ -7,7 +7,6 @@ import './index.css';
 export default class Deck extends Component {
   constructor(props) {
     super(props);
-    this.state = { deck: undefined };
     this.nextCard = this.nextCard.bind(this);
     this.previousCard = this.previousCard.bind(this);
     this._handleKeyDown = this._handleKeyDown.bind(this);
@@ -22,18 +21,15 @@ export default class Deck extends Component {
   }
 
   componentDidMount() {
-    const { match } = this.props;
-    fetch(`${process.env.PUBLIC_URL}/decks/${match.params.deckId}.json`)
-      .then(response => response.json())
-      .then(deck => this.setState({ deck }))
-      .catch(error => this.setState({ error }));
+    const { match, loadDeck } = this.props;
+    loadDeck(match.params.deckId);
   }
 
   render() {
-    const { error, deck } = this.state;
+    const { deck } = this.props;
 
     return (
-      (error && <ErrorScreen />) ||
+      (deck && deck.error && <ErrorScreen />) ||
       (deck && this.renderDeck()) ||
       <h1> Loading ... </h1>
     );
@@ -41,7 +37,7 @@ export default class Deck extends Component {
 
   renderDeck() {
     const { deckId, cardIndex } = this.props.match.params;
-    const { cards } = this.state.deck;
+    const { cards } = this.props.deck;
     const activeCardIndex = parseInt(cardIndex, 10) - 1;
     const displayedCards = this._getDisplayedCards(cards, activeCardIndex);
 
@@ -59,7 +55,7 @@ export default class Deck extends Component {
   }
 
   hasNext() {
-    const { cards } = this.state.deck;
+    const { cards } = this.props.deck;
     const { cardIndex } = this.props.match.params;
     return cardIndex < cards.length;
   }
