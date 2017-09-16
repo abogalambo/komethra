@@ -3,10 +3,10 @@ import { deployDeck, goToCard } from '../actions';
 import DeckComponent from '../components/deck/index';
 
 const mapStateToProps = (state, ownProps) => {
-  const { match } = ownProps;
+  const { deckId } = ownProps.match.params;
   const { decksMap } = state;
-  const { deck, cardIndex } = decksMap[match.params.deckId] || { cardIndex: 0 };
-  return { deck, cardIndex };
+  const { deck, cardIndex } = decksMap[deckId] || {};
+  return { deck, deckId, cardIndex };
 };
 
 const mapDispatchToProps = dispatch => {

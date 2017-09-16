@@ -21,8 +21,8 @@ export default class Deck extends Component {
   }
 
   componentDidMount() {
-    const { match, loadDeck } = this.props;
-    loadDeck(match.params.deckId);
+    const { loadDeck, deckId } = this.props;
+    loadDeck(deckId);
   }
 
   render() {
@@ -59,16 +59,14 @@ export default class Deck extends Component {
   }
 
   nextCard() {
-    const { cardIndex, match, goToCard } = this.props;
-    const { deckId } = match.params;
+    const { cardIndex, deckId, goToCard } = this.props;
     if (this.hasNext()) {
       goToCard(deckId, cardIndex + 1);
     }
   }
 
   previousCard() {
-    const { cardIndex, match, goToCard } = this.props;
-    const { deckId } = match.params;
+    const { cardIndex, deckId, goToCard } = this.props;
     if (this.hasPrevious()) {
       goToCard(deckId, cardIndex - 1);
     }
