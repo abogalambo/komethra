@@ -18,13 +18,19 @@ function decksMap(state = {}, action) {
         [deckId]: newDeckEntry(oldDeckEntry, deckId, newValues)
       });
     case GO_TO_CARD:
-      newValues = { cardIndex: action.cardIndex };
-      return Object.assign({}, state, {
-        [deckId]: newDeckEntry(oldDeckEntry, deckId, newValues)
-      });
+      if (cardWithinBounds(action.cardIndex, oldDeckEntry)) {
+        newValues = { cardIndex: action.cardIndex };
+        return Object.assign({}, state, {
+          [deckId]: newDeckEntry(oldDeckEntry, deckId, newValues)
+        });
+      }
     default:
       return state;
   }
+}
+
+function cardWithinBounds(cardIndex, deckEntry) {
+  return cardIndex >= 0 && cardIndex < deckEntry.deck.cards.length;
 }
 
 const reducer = combineReducers({

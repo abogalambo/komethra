@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Home from './components/home/index';
-import Deck from './containers/deck';
+import RoutedDeck from './components/routed_deck';
 import './App.css';
 
 class App extends Component {
@@ -12,7 +12,10 @@ class App extends Component {
         <div className="App">
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/decks/:deckId/cards/:cardIndex" component={Deck} />
+            <Route
+              path="/decks/:deckId/cards/:cardIndex"
+              component={RoutedDeck}
+            />
           </Switch>
         </div>
       </Router>

@@ -21,8 +21,21 @@ export default class Deck extends Component {
   }
 
   componentDidMount() {
-    const { loadDeck, deckId } = this.props;
-    loadDeck(deckId);
+    const { loadDeck, deckId, initialCardIndex, goToCard } = this.props;
+    loadDeck(deckId).then(() => {
+      if (initialCardIndex) {
+        goToCard(deckId, initialCardIndex);
+      }
+    });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { onCardTransition, cardIndex } = this.props;
+    if (onCardTransition) {
+      if (!isNaN(cardIndex) && cardIndex != nextProps.cardIndex) {
+        onCardTransition(nextProps.cardIndex);
+      }
+    }
   }
 
   render() {
@@ -48,28 +61,14 @@ export default class Deck extends Component {
     );
   }
 
-  hasPrevious() {
-    const { cardIndex } = this.props;
-    return cardIndex > 0;
-  }
-
-  hasNext() {
-    const { deck, cardIndex } = this.props;
-    return cardIndex < deck.cards.length - 1;
-  }
-
   nextCard() {
     const { cardIndex, deckId, goToCard } = this.props;
-    if (this.hasNext()) {
-      goToCard(deckId, cardIndex + 1);
-    }
+    goToCard(deckId, cardIndex + 1);
   }
 
   previousCard() {
     const { cardIndex, deckId, goToCard } = this.props;
-    if (this.hasPrevious()) {
-      goToCard(deckId, cardIndex - 1);
-    }
+    goToCard(deckId, cardIndex - 1);
   }
 
   _handleKeyDown(event) {
