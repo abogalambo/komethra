@@ -3,13 +3,18 @@ import { deployDeck, goToCard } from '../actions';
 import DeckComponent from '../components/deck/index';
 
 const mapStateToProps = (state, ownProps) => {
-  const { deckId } = ownProps.match.params;
+  const { match } = ownProps;
+  const { deckId } = match ? match.params : ownProps;
   const { decksMap } = state;
   const { deck, cardIndex } = decksMap[deckId] || {};
-  return { deck, deckId, cardIndex };
+
+  const cardIndexProp =
+    cardIndex || (match ? parseInt(match.params.cardIndex) - 1 : 0);
+
+  return { deck, deckId, cardIndex: cardIndexProp };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     loadDeck: deckId => {
       fetch(`${process.env.PUBLIC_URL}/decks/${deckId}.json`)
@@ -19,6 +24,9 @@ const mapDispatchToProps = dispatch => {
     },
     goToCard: (deckId, cardIndex) => {
       dispatch(goToCard(deckId, cardIndex));
+      if (ownProps.match) {
+        ownProps.history.push(`/decks/${deckId}/cards/${cardIndex + 1}`);
+      }
     }
   };
 };
