@@ -45,7 +45,7 @@ export default class Question extends Component {
     const { selectedAnswer } = this.state;
     return answers.map(answer => {
       const { image } = answer;
-      const isSelected = selectedAnswer == answer;
+      const isSelected = selectedAnswer === answer;
       const isIncorrect = isSelected && !selectedAnswer.correct;
 
       return (

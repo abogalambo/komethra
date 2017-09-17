@@ -23,6 +23,8 @@ function decksMap(state = {}, action) {
         return Object.assign({}, state, {
           [deckId]: newDeckEntry(oldDeckEntry, deckId, newValues)
         });
+      } else {
+        return state;
       }
     default:
       return state;

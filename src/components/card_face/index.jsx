@@ -29,7 +29,12 @@ export default class CardFace extends Component {
             {' '}{subtitle}{' '}
           </h2>}
         {link &&
-          <a className="link--card" href={link.href} target="_blank">
+          <a
+            className="link--card"
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {link.text}
           </a>}
         {question && <Question {...question} active={current} />}

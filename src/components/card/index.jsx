@@ -45,7 +45,7 @@ export default class Card extends Component {
 
   _handleKeyDown(event) {
     const SPACE = 32;
-    if (event.keyCode == SPACE) {
+    if (event.keyCode === SPACE) {
       this.flip();
     }
   }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Card from '../card/index';
 import ProgressBar from '../progress_bar/index';
 import './index.css';
@@ -32,7 +31,7 @@ export default class Deck extends Component {
   componentWillReceiveProps(nextProps) {
     const { onCardTransition, cardIndex } = this.props;
     if (onCardTransition) {
-      if (!isNaN(cardIndex) && cardIndex != nextProps.cardIndex) {
+      if (!isNaN(cardIndex) && cardIndex !== nextProps.cardIndex) {
         onCardTransition(nextProps.cardIndex);
       }
     }

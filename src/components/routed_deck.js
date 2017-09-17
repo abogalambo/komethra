@@ -19,7 +19,7 @@ export default class RoutedDeck extends Component {
   }
 
   updateRoute(newCardIndex) {
-    const { deckId, cardIndex } = this.props.match.params;
+    const { deckId } = this.props.match.params;
     this.props.history.push(`/decks/${deckId}/cards/${newCardIndex + 1}`);
   }
 }
