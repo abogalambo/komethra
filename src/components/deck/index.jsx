@@ -20,10 +20,10 @@ export default class Deck extends Component {
   }
 
   componentDidMount() {
-    const { loadDeck, deckId, initialCardIndex, goToCard } = this.props;
-    loadDeck(deckId).then(() => {
+    const { loadDeck, initialCardIndex, goToCard } = this.props;
+    loadDeck().then(() => {
       if (initialCardIndex) {
-        goToCard(deckId, initialCardIndex);
+        goToCard(initialCardIndex);
       }
     });
   }
@@ -61,24 +61,28 @@ export default class Deck extends Component {
   }
 
   nextCard() {
-    const { cardIndex, deckId, goToCard } = this.props;
-    goToCard(deckId, cardIndex + 1);
+    const { cardIndex, goToCard } = this.props;
+    goToCard(cardIndex + 1);
   }
 
   previousCard() {
-    const { cardIndex, deckId, goToCard } = this.props;
-    goToCard(deckId, cardIndex - 1);
+    const { cardIndex, goToCard } = this.props;
+    goToCard(cardIndex - 1);
   }
 
   _handleKeyDown(event) {
     const ARROW_LEFT = 37;
     const ARROW_RIGHT = 39;
+    const SPACE = 32;
     switch (event.keyCode) {
       case ARROW_RIGHT:
         this.nextCard();
         break;
       case ARROW_LEFT:
         this.previousCard();
+        break;
+      case SPACE:
+        this.props.flipCard();
         break;
       default:
         break;
@@ -96,6 +100,7 @@ export default class Deck extends Component {
 
     const handlers = {
       '-1': this.previousCard,
+      '0': this.props.flipCard,
       '1': this.nextCard
     };
 
@@ -106,6 +111,7 @@ export default class Deck extends Component {
         card: cards[index],
         key: `card-${index}`,
         onClick: handlers[index - activeIndex],
+        isFlipped: index === activeIndex && this.props.currentCardIsFlipped,
         [positions[index - activeIndex + 2]]: true // e.g previous: true
       }))
       .map(props => <Card {...props} />);

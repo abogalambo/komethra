@@ -1,24 +1,28 @@
 import { connect } from 'react-redux';
-import { deployDeck, goToCard } from '../actions';
+import { deployDeck, goToCard, flipCard } from '../actions';
 import DeckComponent from '../components/deck/index';
 
 const mapStateToProps = (state, ownProps) => {
   const { deckId } = ownProps;
   const { decksMap } = state;
-  const { deck, cardIndex } = decksMap[deckId] || {};
-  return { deck, deckId, cardIndex };
+  const { deck, cardIndex, currentCardIsFlipped } = decksMap[deckId] || {};
+  return { deck, deckId, cardIndex, currentCardIsFlipped };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+  const { deckId } = ownProps;
   return {
-    loadDeck: deckId => {
+    loadDeck: () => {
       return fetch(`${process.env.PUBLIC_URL}/decks/${deckId}.json`)
         .then(response => response.json())
         .then(deck => dispatch(deployDeck(deckId, deck)))
         .catch(error => dispatch(deployDeck(deckId, { deck: { error } })));
     },
-    goToCard: (deckId, cardIndex) => {
-      dispatch(goToCard(deckId, cardIndex));
+    goToCard: cardIndex => {
+      dispatch(goToCard(cardIndex));
+    },
+    flipCard: () => {
+      dispatch(flipCard());
     }
   };
 };

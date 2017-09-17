@@ -4,25 +4,9 @@ import CardFace from '../card_face/index';
 import classNames from 'classnames';
 
 export default class Card extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isFlipped: false };
-    this.flip = this.flip.bind(this);
-    this._handleKeyDown = this._handleKeyDown.bind(this);
-  }
-
-  componentWillMount() {
-    document.addEventListener('keydown', this._handleKeyDown);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this._handleKeyDown);
-  }
-
   render() {
-    const { card, current, onClick } = this.props;
+    const { card, current, onClick, isFlipped } = this.props;
     const { front, back } = card;
-    const { isFlipped } = this.state;
     return (
       <div className="container--card" onClick={this.flip} style={this.style()}>
         {this.shouldRenderCard() &&
@@ -41,20 +25,6 @@ export default class Card extends Component {
           </div>}
       </div>
     );
-  }
-
-  _handleKeyDown(event) {
-    const SPACE = 32;
-    if (event.keyCode === SPACE) {
-      this.flip();
-    }
-  }
-
-  flip() {
-    const { current, card } = this.props;
-    if (card.back && current) {
-      this.setState({ isFlipped: !this.state.isFlipped });
-    }
   }
 
   shouldRenderCard() {
