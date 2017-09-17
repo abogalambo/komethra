@@ -23,6 +23,6 @@ export function flipCard() {
   return { type: FLIP_CARD };
 }
 
-export function answerQuestion(answer) {
-  return { type: ANSWER_QUESTION, answer };
+export function answerQuestion(questionKey, answerIndex) {
+  return { type: ANSWER_QUESTION, questionKey, answerIndex };
 }

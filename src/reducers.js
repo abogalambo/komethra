@@ -1,10 +1,5 @@
 import { combineReducers } from 'redux';
-import { DEPLOY_DECK, GO_TO_CARD, FLIP_CARD } from './actions';
-
-function newDeckEntry(oldDeckEntry = {}, newValues) {
-  const defaultValues = { cardIndex: 0 };
-  return Object.assign({}, defaultValues, oldDeckEntry, newValues);
-}
+import { DEPLOY_DECK, GO_TO_CARD, FLIP_CARD, ANSWER_QUESTION } from './actions';
 
 function decksMap(state = {}, action) {
   let newValues;
@@ -56,8 +51,26 @@ function cardWithinBounds(cardIndex, deckEntry) {
   return cardIndex >= 0 && cardIndex < deckEntry.deck.cards.length;
 }
 
+function newDeckEntry(oldDeckEntry = {}, newValues) {
+  const defaultValues = { cardIndex: 0 };
+  return Object.assign({}, defaultValues, oldDeckEntry, newValues);
+}
+
+function questions(state = {}, action) {
+  switch (action.type) {
+    case ANSWER_QUESTION:
+      const { questionKey, answerIndex } = action;
+      if (state[questionKey]) return state; // already answered
+      return Object.assign({}, state, { [questionKey]: { answerIndex } });
+
+    default:
+      return state;
+  }
+}
+
 const reducer = combineReducers({
-  decksMap
+  decksMap,
+  questions
 });
 
 export default reducer;

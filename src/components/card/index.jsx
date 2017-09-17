@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 export default class Card extends Component {
   render() {
-    const { card, current, onClick, isFlipped } = this.props;
+    const { card, current, onClick, isFlipped, _key } = this.props;
     const { front, back } = card;
     return (
       <div className="container--card" onClick={this.flip} style={this.style()}>
@@ -17,11 +17,17 @@ export default class Card extends Component {
             {front &&
               <CardFace
                 side="front"
+                _key={`${_key}-front`}
                 current={current && !isFlipped}
                 {...front}
               />}
             {back &&
-              <CardFace side="back" current={current && isFlipped} {...back} />}
+              <CardFace
+                side="back"
+                _key={`${_key}-back`}
+                current={current && isFlipped}
+                {...back}
+              />}
           </div>}
       </div>
     );

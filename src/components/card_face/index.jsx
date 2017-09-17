@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
 import Audio from '../audio/index';
-import Question from '../question/index';
+import Question from '../../containers/question';
 
 export default class CardFace extends Component {
   render() {
@@ -13,7 +13,8 @@ export default class CardFace extends Component {
       subtitle,
       link,
       current,
-      question
+      question,
+      _key
     } = this.props;
     return (
       <div className={`card--face ${side}`}>
@@ -37,7 +38,8 @@ export default class CardFace extends Component {
           >
             {link.text}
           </a>}
-        {question && <Question {...question} active={current} />}
+        {question &&
+          <Question {...question} active={current} _key={`question-${_key}`} />}
       </div>
     );
   }

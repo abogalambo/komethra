@@ -110,6 +110,7 @@ export default class Deck extends Component {
       .map(index => ({
         card: cards[index],
         key: `card-${index}`,
+        _key: `card-${index}`,
         onClick: handlers[index - activeIndex],
         isFlipped: index === activeIndex && this.props.currentCardIsFlipped,
         [positions[index - activeIndex + 2]]: true // e.g previous: true
