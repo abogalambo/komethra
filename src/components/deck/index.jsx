@@ -38,18 +38,16 @@ export default class Deck extends Component {
   }
 
   render() {
-    const { deck } = this.props;
-
+    const { error, cards } = this.props;
     return (
-      (deck && deck.error && <ErrorScreen />) ||
-      (deck && this.renderDeck()) ||
+      (error && <ErrorScreen />) ||
+      (cards && this.renderDeck()) ||
       <h1> Loading ... </h1>
     );
   }
 
   renderDeck() {
-    const { cardIndex } = this.props;
-    const { cards } = this.props.deck;
+    const { cardIndex, cards } = this.props;
     const displayedCards = this._getDisplayedCards(cards, cardIndex);
 
     return (

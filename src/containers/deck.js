@@ -5,8 +5,9 @@ import DeckComponent from '../components/deck/index';
 const mapStateToProps = (state, ownProps) => {
   const { deckId } = ownProps;
   const { decksMap } = state;
-  const { deck, cardIndex, currentCardIsFlipped } = decksMap[deckId] || {};
-  return { deck, deckId, cardIndex, currentCardIsFlipped };
+  const { error, cards, cardIndex, currentCardIsFlipped } =
+    decksMap[deckId] || {};
+  return { error, cards, deckId, cardIndex, currentCardIsFlipped };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -16,7 +17,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       return fetch(`${process.env.PUBLIC_URL}/decks/${deckId}.json`)
         .then(response => response.json())
         .then(deck => dispatch(deployDeck(deckId, deck)))
-        .catch(error => dispatch(deployDeck(deckId, { deck: { error } })));
+        .catch(error => dispatch(deployDeck(deckId, { error })));
     },
     goToCard: cardIndex => {
       dispatch(goToCard(cardIndex));
