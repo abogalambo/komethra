@@ -1,6 +1,7 @@
 import { GO_TO_CARD, FLIP_CARD, ANSWER_QUESTION } from '../actions';
 
 const DEFAULT_DECK_ATTRIBUTES = { cardIndex: 0 };
+const DEFAULT_REMAINING = 3;
 
 export default function deck(state = {}, action) {
   switch (action.type) {
@@ -29,14 +30,33 @@ export default function deck(state = {}, action) {
       if (question.selectedAnswer) return state;
 
       const { answerIndex } = action;
-      const newQuestion = Object.assign({}, question, {
-        selectedAnswer: question.answers[answerIndex]
-      });
+      const selectedAnswer = question.answers[answerIndex];
+      const currentRemaining = question.remaining || DEFAULT_REMAINING;
+      const remaining = selectedAnswer.correct
+        ? currentRemaining - 1
+        : DEFAULT_REMAINING;
+      const newQuestion = Object.assign({}, question, { selectedAnswer });
       const newCardFace = Object.assign({}, cardFace, {
         question: newQuestion
       });
 
-      return updateCard(state, { [cardSide]: newCardFace }, cardIndex);
+      const updatedDeck = updateCard(
+        state,
+        { [cardSide]: newCardFace },
+        cardIndex
+      );
+
+      if (remaining < 1) return updatedDeck;
+
+      const newQuestion2 = Object.assign({}, question, { remaining });
+      const newCardFace2 = Object.assign({}, cardFace, {
+        question: newQuestion2
+      });
+      return insertCard(
+        updatedDeck,
+        Object.assign({}, card, { [cardSide]: newCardFace2 }),
+        Math.min(cardIndex + 5, cards.length)
+      );
     }
 
     default:
@@ -59,11 +79,20 @@ function cardIndexLimit(deck) {
 
 function updateCard(deck, newCardAttributes, cardIndex) {
   const cards = deck.cards.map((card, index) => {
-    if (index === cardIndex) {
-      return Object.assign({}, card, newCardAttributes);
-    } else {
-      return card;
-    }
+    return index === cardIndex
+      ? Object.assign({}, card, newCardAttributes)
+      : card;
   });
   return Object.assign({}, deck, { cards });
+}
+
+function insertCard(deck, newCardAttributes, cardIndex) {
+  const { cards } = deck;
+  const newCards = [
+    ...cards.slice(0, cardIndex),
+    newCardAttributes,
+    ...cards.slice(cardIndex + 1, cards.length)
+  ];
+
+  return Object.assign({}, deck, { cards: newCards });
 }
