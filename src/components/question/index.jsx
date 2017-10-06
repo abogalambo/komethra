@@ -49,14 +49,15 @@ export default class Question extends Component {
   }
 
   renderAnswers() {
-    const { answers, selectedAnswer } = this.props;
-    return answers.map(answer => {
+    const { answers, selectedAnswer, _key } = this.props;
+    return answers.map((answer, index) => {
       const { image } = answer;
       const isSelected = selectedAnswer === answer;
       const isIncorrect = isSelected && !selectedAnswer.correct;
 
       return (
         <div
+          key={`answer-${index}-${_key}`}
           className={classNames('answer', { selected: isSelected })}
           onClick={this._answerHandler(answer)}
         >

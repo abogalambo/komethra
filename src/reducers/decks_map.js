@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { DEPLOY_DECK, ANSWER_QUESTION } from '../actions';
+import { DEPLOY_DECK } from '../actions';
 import activeDeck from './deck';
 
 function decksMap(state = {}, action) {
@@ -19,21 +19,8 @@ function decksMap(state = {}, action) {
   }
 }
 
-function questions(state = {}, action) {
-  switch (action.type) {
-    case ANSWER_QUESTION:
-      const { questionKey, answerIndex } = action;
-      if (state[questionKey]) return state; // already answered
-      return Object.assign({}, state, { [questionKey]: { answerIndex } });
-
-    default:
-      return state;
-  }
-}
-
 const reducer = combineReducers({
-  decksMap,
-  questions
+  decksMap
 });
 
 export default reducer;

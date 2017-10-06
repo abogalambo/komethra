@@ -21,7 +21,22 @@ export default function deck(state = {}, action) {
     }
 
     case ANSWER_QUESTION: {
-      return Object.assign({}, DEFAULT_DECK_ATTRIBUTES, state);
+      const { cards, cardIndex, currentCardIsFlipped } = state;
+      const card = cards[cardIndex];
+      const cardSide = currentCardIsFlipped ? 'back' : 'front';
+      const cardFace = card[cardSide];
+      const { question } = cardFace;
+      if (question.selectedAnswer) return state;
+
+      const { answerIndex } = action;
+      const newQuestion = Object.assign({}, question, {
+        selectedAnswer: question.answers[answerIndex]
+      });
+      const newCardFace = Object.assign({}, cardFace, {
+        question: newQuestion
+      });
+
+      return updateCard(state, { [cardSide]: newCardFace }, cardIndex);
     }
 
     default:
@@ -31,4 +46,15 @@ export default function deck(state = {}, action) {
 
 function cardWithinBounds(cardIndex, deck) {
   return cardIndex >= 0 && cardIndex < deck.cards.length;
+}
+
+function updateCard(deck, newCardAttributes, cardIndex) {
+  const cards = deck.cards.map((card, index) => {
+    if (index === cardIndex) {
+      return Object.assign({}, card, newCardAttributes);
+    } else {
+      return card;
+    }
+  });
+  return Object.assign({}, deck, { cards });
 }
