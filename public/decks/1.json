@@ -20,6 +20,22 @@
 		},
 		{
 			"front": {
+				"question": {
+					"head": {
+						"audio": {
+							"url": "/audio/demo/shaa.m4a"
+						}
+					},
+					"answers": [
+						{"image": "/img/alph/Aa.png"},
+						{"image": "/img/alph/ba.png"},
+						{"image": "/img/alph/shaa.png", "correct": true}
+					]
+				}
+			}
+		},
+		{
+			"front": {
 				"image": "/img/elephant-back.png",
 				"audio": {
 					"url": "/audio/demo/c3-front.m4a",
@@ -50,20 +66,6 @@
 		},
 		{
 			"front": {
-				"image": "/img/meditation.jpg",
-				"title": "Just a silent card",
-				"subtitle": "Because you’re probably sick of me talking. But if not, flip this card"
-			},
-			"back": {
-				"link": {
-					"text": "Enjoy ♪",
-					"href": "https://soundcloud.com/yaser-kamaluddeen/eqghssyyol1z"
-				},
-				"image": "/img/goat.jpg"
-			}
-		},
-		{
-			"front": {
 				"question": {
 					"head": {
 						"audio": {
@@ -76,6 +78,20 @@
 						{"image": "/img/alph/shaa.png", "correct": true}
 					]
 				}
+			}
+		},
+		{
+			"front": {
+				"image": "/img/meditation.jpg",
+				"title": "Just a silent card",
+				"subtitle": "Because you’re probably sick of me talking. But if not, flip this card"
+			},
+			"back": {
+				"link": {
+					"text": "Enjoy ♪",
+					"href": "https://soundcloud.com/yaser-kamaluddeen/eqghssyyol1z"
+				},
+				"image": "/img/goat.jpg"
 			}
 		}
 	]

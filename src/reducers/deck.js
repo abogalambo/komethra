@@ -45,7 +45,16 @@ export default function deck(state = {}, action) {
 }
 
 function cardWithinBounds(cardIndex, deck) {
-  return cardIndex >= 0 && cardIndex < deck.cards.length;
+  return cardIndex >= 0 && cardIndex < cardIndexLimit(deck);
+}
+
+function cardIndexLimit(deck) {
+  return deck.cards.reduce((limit, card, index) => {
+    if (card.front.question && !card.front.question.selectedAnswer) {
+      return Math.min(limit, index + 1);
+    }
+    return limit;
+  }, deck.cards.length);
 }
 
 function updateCard(deck, newCardAttributes, cardIndex) {
