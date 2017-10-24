@@ -22,16 +22,16 @@ export default class CardFace extends Component {
           <Audio url={audio.url} active={current} autoplay={audio.autoplay} />}
         {image && <img alt="" src={image} />}
         {title &&
-          <h1 className="title--card">
+          <h1 className="card--title">
             {' '}{title}{' '}
           </h1>}
         {subtitle &&
-          <h2 className="subtitle--card">
+          <h2 className="card--subtitle">
             {' '}{subtitle}{' '}
           </h2>}
         {link &&
           <a
-            className="link--card"
+            className="card--link"
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
