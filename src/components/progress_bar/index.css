@@ -1,26 +1,24 @@
 .container--progress-bar {
-  height: 5%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  height: 50px;
+  max-width: 1080px;
+  margin: auto;
+  padding: 15px;
 }
 
 .progress-bar {
-  max-width: 700px;
-  width: 75%;
-  height: 10px;
-  background-color: #b3b3b3;
-}
-
-.progress-bar,
-.progress-bar div {
-  border-radius: 5px;
+  background: #e6e6e6;
+  width: 100%;
+  height: 2px;
+  border-radius: 1px;
+  position: relative;
 }
 
 .progress-bar div {
-  background-color: #abc837;
-  height: inherit;
+  background: #55d400;
+  background: linear-gradient(90deg, #82dd00, #37ba00);
+  height: 8px;
+  border-radius: 4px;
   transition: width 0.5s ease-out;
+  position: absolute;
+  top: -3px;
 }
