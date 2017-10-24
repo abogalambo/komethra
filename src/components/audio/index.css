@@ -1,12 +1,11 @@
 .btn--audio {
-  background-color: #abc837;
+  background-color: #55d400;
   background-repeat: no-repeat;
   background-size: 25px 25px;
   background-position: center;
-  fill: #fff;
-  width: 40px;
-  height: 40px;
-  border-radius: 25px;
+  width: 52px;
+  height: 52px;
+  border-radius: 26px;
 }
 
 .btn--audio__play {
