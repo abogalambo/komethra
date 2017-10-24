@@ -12,6 +12,9 @@ export default class Card extends Component {
         {this.shouldRenderCard() &&
           <div
             className={classNames('card', { flipped: isFlipped })}
+            style={
+              current && { 'box-shadow': '0 12px 20px 2px rgba(0, 0, 0, .4)' }
+            }
             onClick={onClick}
           >
             {front &&
@@ -40,10 +43,10 @@ export default class Card extends Component {
 
   style() {
     const { preprevious, previous, current, next, nextnext } = this.props;
-    if (preprevious) return { left: '-100%' };
-    if (previous) return { left: '-40%' };
-    if (current) return { left: '20%' };
-    if (next) return { left: '80%' };
-    if (nextnext) return { left: '120%' };
+    if (preprevious) return { left: '-150%' };
+    if (previous) return { left: '-70%' };
+    if (current) return { left: '10%' };
+    if (next) return { left: '90%' };
+    if (nextnext) return { left: '160%' };
   }
 }
