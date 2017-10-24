@@ -3,15 +3,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
   backface-visibility: hidden;
   width: inherit;
   height: inherit;
-  position: absolute;
-  top: 0;
-  left: 0;
   border-radius: 3px;
-  box-shadow: -2px 2px 4px rgba(51, 51, 51, 0.1);
+  position: absolute;
 }
 
 .front {
@@ -26,19 +22,18 @@
 }
 
 .card--face img {
-  max-height: 80%;
-  max-width: 80%;
-  border-radius: 3px;
+  max-height: calc(100% - 62px);
+  max-width: 100%;
+  border-radius: 5px;
 }
 
-.card--face  h1.title--card {
+.card--face h1.card--title {
   font-size: 2em;
   font-weight: 600;
   width: 100%;
-  margin-top: 5px;
 }
 
-.card--face  h2.subtitle--card {
+.card--face  h2.card--subtitle {
   font-size: 1em;
   width: 100%;
   margin-top: 5px;
@@ -56,6 +51,6 @@
 
 .card--face > .btn--audio {
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 0;
+  left: 0;
 }
