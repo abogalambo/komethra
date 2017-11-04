@@ -16,8 +16,10 @@
 
 .card {
   background: white;
-  width: 250px;
-  height: 300px;
+  width: 60vw;
+  height: 70vw;
+  min-width: 153.78px;
+  min-height: 179.4px;
   border-radius: 3px;
   position: relative;
   transition: 0.8s ease-out;
