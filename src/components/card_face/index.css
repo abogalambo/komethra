@@ -4,8 +4,8 @@
   justify-content: center;
   align-items: center;
   backface-visibility: hidden;
-  width: inherit;
-  height: inherit;
+  width: calc(100% - 30px);
+  height: calc(100% - 50px);
   border-radius: 3px;
   position: absolute;
 }
@@ -21,7 +21,7 @@
   transform: rotateY(180deg);
 }
 
-.card--face img {
+.card--face > img {
   max-height: calc(100% - 62px);
   max-width: 100%;
   border-radius: 5px;
