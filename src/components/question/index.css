@@ -7,7 +7,7 @@
 }
 
 .head > span {
-  width: calc(100% - 77px);
+  width: calc(100% - 30%);
   font-size: 25px;
   text-align: left;
   align-self: center;
@@ -35,6 +35,9 @@
   border-radius: 5px;
   text-align: center;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .answer > img {
