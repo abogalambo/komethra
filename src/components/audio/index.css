@@ -7,9 +7,7 @@
   height: 12.57vw;
   min-width: 40px;
   min-height: 40px;
-  max-width: 52px;
-  max-height: 52px;
-  border-radius: 26px;
+  border-radius: 10000px;
 }
 
 .btn--audio__play {
