@@ -13,7 +13,10 @@ export default class Card extends Component {
           <div
             className={classNames('card', { flipped: isFlipped })}
             style={
-              current && { 'box-shadow': '0 12px 20px 2px rgba(0, 0, 0, .4)' }
+              current && {
+                'box-shadow':
+                  '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)'
+              }
             }
             onClick={onClick}
           >
