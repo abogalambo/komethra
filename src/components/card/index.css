@@ -28,3 +28,11 @@
   padding: 8% 5%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
+
+@media only screen and (min-width: 480px) and (orientation: landscape) {
+  .card {
+    width: 40vw;
+    height: 30vw;
+    padding: 3.5% 4.1%;
+  }
+}
