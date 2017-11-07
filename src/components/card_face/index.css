@@ -23,7 +23,7 @@
 
 .card--face > img {
   max-height: calc(100% - 62px);
-  max-width: 100%;
+  width: 100%;
   border-radius: 5px;
 }
 
@@ -53,4 +53,11 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+
+@media only screen and (min-width: 480px) and (orientation: landscape) {
+  .card--face {
+    width: calc(100% -16%);
+    height: calc(100% - 12%);
+  }
 }
