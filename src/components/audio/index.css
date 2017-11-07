@@ -22,3 +22,10 @@
   background-image: url('img/loader.gif');
   background-size: 20px 20px;
 }
+
+@media only screen and (min-width: 480px) and (orientation: landscape) {
+  .btn--audio {
+    width: 8.7vw;
+    height: 8.7vw;
+  }
+}
