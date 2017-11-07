@@ -39,7 +39,7 @@ export default class Question extends Component {
               active={active}
               autoplay={!selectedAnswer}
             />}
-          <span id="question--title">Select the right answer</span>
+          <span>Select the right answer</span>
         </div>
         <div className="answers">
           {answers}
