@@ -52,8 +52,10 @@ export default class Deck extends Component {
 
     return (
       <div className="container--deck">
-        <ProgressBar currentIndex={cardIndex + 1} length={cards.length} />
-        {displayedCards}
+        <div className="wrapper--deck">
+          <ProgressBar currentIndex={cardIndex + 1} length={cards.length} />
+          {displayedCards}
+        </div>
       </div>
     );
   }
