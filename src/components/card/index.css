@@ -36,3 +36,11 @@
     padding: 3.5% 4.1%;
   }
 }
+
+@media only screen and (min-width: 1050px) {
+  .card {
+    width: 350px;
+    height: 262px;
+    padding: 25px 15px;
+  }
+}
