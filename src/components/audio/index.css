@@ -29,3 +29,10 @@
     height: 8.7vw;
   }
 }
+
+@media only screen and (min-width: 1050px) {
+  .btn--audio {
+    width: 72px;
+    height: 72px;
+  }
+}
