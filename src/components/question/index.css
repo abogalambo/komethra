@@ -26,6 +26,7 @@
   height: 75%;
   width: 100%;
   padding-top: 10px;
+  margin: 0 auto;
 }
 
 .question .answers .answer {
@@ -83,5 +84,16 @@
   .question .answers .answer {
     max-width: none;
     max-height: none;
+  }
+}
+
+@media only screen and (min-width: 1050px) {
+  .question .answers {
+    width: 88%;
+  }
+
+  .question .answers .answer {
+    width: 100px;
+    height: calc(100px / 0.75);
   }
 }
